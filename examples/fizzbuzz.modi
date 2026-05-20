@@ -1,0 +1,26 @@
+namaste
+
+// suno mitron: ye hai Modi style FizzBuzz!
+// 3 ka multiple = "Modi!"
+// 5 ka multiple = "Mitron!"
+// dono ka = "Acche Din!"
+
+mann_ki_baat("🎪 Modi FizzBuzz — Let's go mitron!");
+mann_ki_baat("================================");
+
+sabka_saath (modi i = 1; i <= 30; i = i + 1) {
+    agar_modi (i % 15 same2same 0) {
+        mann_ki_baat("🎉 Acche Din!");
+    } warna_modi (i % 3 same2same 0) {
+        mann_ki_baat("🇮🇳 Modi!");
+    } warna_modi (i % 5 same2same 0) {
+        mann_ki_baat("🎤 Mitron!");
+    } nahi_toh {
+        mann_ki_baat(i);
+    }
+}
+
+mann_ki_baat("================================");
+mann_ki_baat("FizzBuzz complete! Jai Hind! 🇮🇳");
+
+jai_hind

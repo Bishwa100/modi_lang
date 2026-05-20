@@ -1,0 +1,39 @@
+namaste
+
+// suno mitron: calculator banate hain!
+
+mitron add(a, b) {
+    laut_aao a + b;
+}
+
+mitron subtract(a, b) {
+    laut_aao a - b;
+}
+
+mitron multiply(a, b) {
+    laut_aao a * b;
+}
+
+mitron divide(a, b) {
+    agar_modi (b same2same 0) {
+        mann_ki_baat("Zero se divide? Ye toh jumla hai! ❌");
+        laut_aao nota;
+    }
+    laut_aao a / b;
+}
+
+// Let's calculate!
+mann_ki_baat("🧮 Modi Calculator");
+mann_ki_baat("==================");
+
+modi a = 100;
+modi b = 25;
+
+mann_ki_baat("a = " + a);
+mann_ki_baat("b = " + b);
+mann_ki_baat("a + b = " + add(a, b));
+mann_ki_baat("a - b = " + subtract(a, b));
+mann_ki_baat("a * b = " + multiply(a, b));
+mann_ki_baat("a / b = " + divide(a, b));
+
+jai_hind

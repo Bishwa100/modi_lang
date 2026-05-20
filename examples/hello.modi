@@ -1,0 +1,9 @@
+namaste
+
+// suno mitron: ye hai sabse pehla Modi Lang program!
+modi greeting = "Mitron, Bhaiyo aur Behno!";
+mann_ki_baat(greeting);
+mann_ki_baat("Acche din aane wale hain! 🎉");
+mann_ki_baat("Welcome to Modi Lang — The Deshbhakt Programming Language! 🇮🇳");
+
+jai_hind

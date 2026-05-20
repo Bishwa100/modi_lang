@@ -1,0 +1,86 @@
+namaste
+
+// suno mitron: ye hai Modi Lang ka feature demo!
+
+mann_ki_baat("🇮🇳 Modi Lang Feature Demo 🇮🇳");
+mann_ki_baat("=============================");
+
+// 1. Variables
+mann_ki_baat("\n📦 Variables (modi keyword):");
+modi name = "Narendra";
+modi age = 74;
+modi is_pm = acche_din;
+mann_ki_baat("Name: " + name);
+mann_ki_baat("Age: " + age);
+mann_ki_baat("Is PM: " + is_pm);
+
+// 2. Arrays (Rally)
+mann_ki_baat("\n📋 Arrays (Rally):");
+modi states = ["Gujarat", "UP", "Maharashtra", "Bihar"];
+mann_ki_baat("States: " + states);
+mann_ki_baat("First state: " + states[0]);
+mann_ki_baat("Total states: " + lambai(states));
+
+// 3. Conditions
+mann_ki_baat("\n🔀 Conditions (agar_modi / nahi_toh):");
+modi votes = 303;
+agar_modi (votes >= 272) {
+    mann_ki_baat("Majority hai! Sarkar banegi! 🎉");
+} nahi_toh {
+    mann_ki_baat("Coalition ki zaroorat hai! 🤝");
+}
+
+// 4. Loops
+mann_ki_baat("\n🔄 For Loop (sabka_saath):");
+sabka_saath (modi i = 1; i <= 5; i = i + 1) {
+    mann_ki_baat("  Rally #" + i + " ✅");
+}
+
+mann_ki_baat("\n🔁 While Loop (ghuma_ke):");
+modi count = 3;
+ghuma_ke (count > 0) {
+    mann_ki_baat("  Countdown: " + count);
+    count = count - 1;
+}
+mann_ki_baat("  Launch! 🚀");
+
+// 5. Functions
+mann_ki_baat("\n⚡ Functions (mitron):");
+mitron greet(person) {
+    laut_aao "Namaste, " + person + " ji! 🙏";
+}
+mann_ki_baat(greet("Amit"));
+mann_ki_baat(greet("Yogi"));
+
+// 6. Boolean values
+mann_ki_baat("\n✅❌ Booleans:");
+mann_ki_baat("acche_din (true): " + acche_din);
+mann_ki_baat("jumla (false): " + jumla);
+
+// 7. Null
+mann_ki_baat("\n🚫 Null (nota):");
+modi nothing = nota;
+mann_ki_baat("nota value: " + nothing);
+
+// 8. Try-Catch
+mann_ki_baat("\n🛡️ Try-Catch (modi_hai_toh / pakoda):");
+modi_hai_toh {
+    modi result = 10 / 0;
+} pakoda (error) {
+    mann_ki_baat("Pakoda caught error: " + error);
+}
+
+// 9. Break (demonetization)
+mann_ki_baat("\n💸 Break (demonetization):");
+sabka_saath (modi j = 1; j <= 10; j = j + 1) {
+    agar_modi (j same2same 5) {
+        mann_ki_baat("  Demonetization at j=" + j + "! Loop broken! 💥");
+        demonetization;
+    }
+    mann_ki_baat("  j = " + j);
+}
+
+mann_ki_baat("\n=============================");
+mann_ki_baat("Demo complete! Jai Hind! 🇮🇳");
+
+jai_hind

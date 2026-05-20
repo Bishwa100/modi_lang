@@ -1,0 +1,284 @@
+// 🇮🇳 Modi Lang — Evaluator (AST Interpreter)
+const { Environment } = require('./environment');
+const { builtins } = require('./builtins');
+const { ModiRuntimeError, ModiTypeError, ErrorMessages } = require('./errors');
+const readlineSync = require('./readline_sync');
+
+// Signals for control flow
+class ReturnSignal { constructor(value) { this.value = value; } }
+class BreakSignal {}
+class ContinueSignal {}
+
+class Evaluator {
+  constructor() {
+    this.globalEnv = new Environment();
+    this.callDepth = 0;
+    this.maxCallDepth = 500;
+    this.output = []; // capture output for testing
+  }
+
+  run(ast) {
+    this.evaluate(ast, this.globalEnv);
+    return this.output;
+  }
+
+  evaluate(node, env) {
+    switch (node.type) {
+      case 'Program': return this.evalProgram(node, env);
+      case 'VariableDeclaration': return this.evalVarDecl(node, env);
+      case 'AssignmentStatement': return this.evalAssignment(node, env);
+      case 'PrintStatement': return this.evalPrint(node, env);
+      case 'IfStatement': return this.evalIf(node, env);
+      case 'WhileStatement': return this.evalWhile(node, env);
+      case 'ForStatement': return this.evalFor(node, env);
+      case 'FunctionDeclaration': return this.evalFuncDecl(node, env);
+      case 'ReturnStatement': return this.evalReturn(node, env);
+      case 'BreakStatement': throw new BreakSignal();
+      case 'ContinueStatement': throw new ContinueSignal();
+      case 'TryCatchStatement': return this.evalTryCatch(node, env);
+      case 'ExpressionStatement': return this.evaluate(node.expression, env);
+      case 'NumberLiteral': return node.value;
+      case 'StringLiteral': return node.value;
+      case 'BooleanLiteral': return node.value;
+      case 'NullLiteral': return null;
+      case 'ArrayLiteral': return node.elements.map(e => this.evaluate(e, env));
+      case 'Identifier': return env.get(node.name);
+      case 'BinaryExpression': return this.evalBinary(node, env);
+      case 'UnaryExpression': return this.evalUnary(node, env);
+      case 'LogicalExpression': return this.evalLogical(node, env);
+      case 'CallExpression': return this.evalCall(node, env);
+      case 'IndexExpression': return this.evalIndex(node, env);
+      case 'InputExpression': return this.evalInput(node, env);
+      default:
+        throw new ModiRuntimeError(ErrorMessages.runtimeCrash(`Unknown node: ${node.type}`));
+    }
+  }
+
+  evalProgram(node, env) {
+    let result = null;
+    for (const stmt of node.body) {
+      result = this.evaluate(stmt, env);
+    }
+    return result;
+  }
+
+  evalVarDecl(node, env) {
+    const value = this.evaluate(node.value, env);
+    env.declare(node.name, value);
+    return value;
+  }
+
+  evalAssignment(node, env) {
+    const value = this.evaluate(node.value, env);
+    env.set(node.name, value);
+    return value;
+  }
+
+  evalPrint(node, env) {
+    const value = this.evaluate(node.expression, env);
+    const output = this.stringify(value);
+    console.log(output);
+    this.output.push(output);
+    return value;
+  }
+
+  evalIf(node, env) {
+    const condition = this.evaluate(node.condition, env);
+    if (this.isTruthy(condition)) {
+      return this.evalBlock(node.consequent, env);
+    }
+    for (const alt of node.alternates) {
+      if (this.isTruthy(this.evaluate(alt.condition, env))) {
+        return this.evalBlock(alt.consequent, env);
+      }
+    }
+    if (node.alternate) {
+      return this.evalBlock(node.alternate, env);
+    }
+    return null;
+  }
+
+  evalWhile(node, env) {
+    while (this.isTruthy(this.evaluate(node.condition, env))) {
+      try {
+        this.evalBlock(node.body, env);
+      } catch (e) {
+        if (e instanceof BreakSignal) break;
+        if (e instanceof ContinueSignal) continue;
+        throw e;
+      }
+    }
+    return null;
+  }
+
+  evalFor(node, env) {
+    const forEnv = env.createChild();
+    this.evaluate(node.init, forEnv);
+    while (this.isTruthy(this.evaluate(node.condition, forEnv))) {
+      try {
+        this.evalBlock(node.body, forEnv);
+      } catch (e) {
+        if (e instanceof BreakSignal) break;
+        if (e instanceof ContinueSignal) { /* fall through to update */ }
+        else throw e;
+      }
+      this.evaluate(node.update, forEnv);
+    }
+    return null;
+  }
+
+  evalFuncDecl(node, env) {
+    const func = { type: 'function', name: node.name, params: node.params, body: node.body, closure: env };
+    env.declare(node.name, func);
+    return func;
+  }
+
+  evalReturn(node, env) {
+    const value = node.value ? this.evaluate(node.value, env) : null;
+    throw new ReturnSignal(value);
+  }
+
+  evalTryCatch(node, env) {
+    try {
+      this.evalBlock(node.tryBlock, env);
+    } catch (e) {
+      if (e instanceof ReturnSignal || e instanceof BreakSignal || e instanceof ContinueSignal) throw e;
+      const catchEnv = env.createChild();
+      catchEnv.declare(node.catchParam, e.message || String(e));
+      this.evalBlock(node.catchBlock, catchEnv);
+    }
+    return null;
+  }
+
+  evalCall(node, env) {
+    const name = typeof node.callee === 'string' ? node.callee : node.callee;
+    const args = node.args.map(a => this.evaluate(a, env));
+
+    // Check builtins first
+    if (builtins[name]) {
+      try { return builtins[name](args); }
+      catch (e) { throw new ModiRuntimeError(e.message); }
+    }
+
+    // User-defined function
+    const func = env.get(name);
+    if (!func || func.type !== 'function') {
+      throw new ModiRuntimeError(ErrorMessages.notCallable(name));
+    }
+
+    if (args.length !== func.params.length) {
+      const errFn = args.length > func.params.length ? ErrorMessages.tooManyArguments : ErrorMessages.tooFewArguments;
+      throw new ModiRuntimeError(errFn(name, func.params.length, args.length));
+    }
+
+    this.callDepth++;
+    if (this.callDepth > this.maxCallDepth) {
+      this.callDepth = 0;
+      throw new ModiRuntimeError(ErrorMessages.stackOverflow());
+    }
+
+    const funcEnv = func.closure.createChild();
+    for (let i = 0; i < func.params.length; i++) {
+      funcEnv.declare(func.params[i], args[i]);
+    }
+
+    let result = null;
+    try {
+      this.evalBlock(func.body, funcEnv);
+    } catch (e) {
+      if (e instanceof ReturnSignal) { result = e.value; }
+      else throw e;
+    } finally {
+      this.callDepth--;
+    }
+    return result;
+  }
+
+  evalBinary(node, env) {
+    const left = this.evaluate(node.left, env);
+    const right = this.evaluate(node.right, env);
+
+    switch (node.operator) {
+      case '+':
+        if (typeof left === 'string' || typeof right === 'string') return String(left) + String(right);
+        return left + right;
+      case '-': return left - right;
+      case '*': return left * right;
+      case '/':
+        if (right === 0) throw new ModiRuntimeError(ErrorMessages.divisionByZero());
+        return left / right;
+      case '%':
+        if (right === 0) throw new ModiRuntimeError(ErrorMessages.divisionByZero());
+        return left % right;
+      case '<': return left < right;
+      case '>': return left > right;
+      case '<=': return left <= right;
+      case '>=': return left >= right;
+      case 'same2same': return left === right;
+      case 'jumla_hai': return left !== right;
+      default:
+        throw new ModiRuntimeError(ErrorMessages.invalidOperator(node.operator, typeof left));
+    }
+  }
+
+  evalUnary(node, env) {
+    const val = this.evaluate(node.operand, env);
+    if (node.operator === '-') return -val;
+    if (node.operator === 'bilkul_nahi') return !this.isTruthy(val);
+    throw new ModiRuntimeError(ErrorMessages.invalidOperator(node.operator, typeof val));
+  }
+
+  evalLogical(node, env) {
+    const left = this.evaluate(node.left, env);
+    if (node.operator === 'ya') return this.isTruthy(left) ? left : this.evaluate(node.right, env);
+    if (node.operator === 'aur') return !this.isTruthy(left) ? left : this.evaluate(node.right, env);
+    throw new ModiRuntimeError(ErrorMessages.invalidOperator(node.operator, typeof left));
+  }
+
+  evalIndex(node, env) {
+    const obj = this.evaluate(node.object, env);
+    const idx = this.evaluate(node.index, env);
+    if (Array.isArray(obj)) {
+      if (idx < 0 || idx >= obj.length) throw new ModiRuntimeError(ErrorMessages.indexOutOfBounds(idx, obj.length));
+      return obj[idx];
+    }
+    if (typeof obj === 'string') {
+      if (idx < 0 || idx >= obj.length) throw new ModiRuntimeError(ErrorMessages.indexOutOfBounds(idx, obj.length));
+      return obj[idx];
+    }
+    throw new ModiTypeError(ErrorMessages.typeError('rally/bhaashan', typeof obj));
+  }
+
+  evalInput(node, env) {
+    const prompt = node.prompt ? this.evaluate(node.prompt, env) : '';
+    return readlineSync(this.stringify(prompt));
+  }
+
+  evalBlock(stmts, parentEnv) {
+    const blockEnv = parentEnv.createChild();
+    let result = null;
+    for (const stmt of stmts) {
+      result = this.evaluate(stmt, blockEnv);
+    }
+    return result;
+  }
+
+  isTruthy(val) {
+    if (val === null) return false;
+    if (val === false) return false;
+    if (val === 0) return false;
+    if (val === '') return false;
+    return true;
+  }
+
+  stringify(val) {
+    if (val === null) return 'nota';
+    if (val === true) return 'acche_din';
+    if (val === false) return 'jumla';
+    if (Array.isArray(val)) return '[' + val.map(v => this.stringify(v)).join(', ') + ']';
+    if (typeof val === 'object' && val.type === 'function') return `<mitron ${val.name}>`;
+    return String(val);
+  }
+}
+
+module.exports = { Evaluator };

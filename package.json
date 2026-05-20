@@ -1,0 +1,24 @@
+{
+  "name": "modi-lang",
+  "version": "1.0.0",
+  "description": "🇮🇳 Modi Lang — The Deshbhakt Programming Language. Mitron, ab coding bhi deshbhakti hai!",
+  "main": "src/evaluator.js",
+  "bin": {
+    "modi": "./bin/modi.js"
+  },
+  "scripts": {
+    "start": "node bin/modi.js",
+    "repl": "node bin/modi.js repl",
+    "test": "node --test tests/"
+  },
+  "keywords": [
+    "modi-lang",
+    "esoteric",
+    "programming-language",
+    "funny",
+    "interpreter",
+    "india"
+  ],
+  "author": "Deshbhakt Developer",
+  "license": "MIT"
+}
