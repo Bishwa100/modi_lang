@@ -168,6 +168,7 @@ class Lexer {
       'jumla': ['jumla_hai'],
       'ghuma': ['ghuma_ke'],
       'swachh': ['swachh_bharat'],
+      'bas': ['bas_kar'],
     };
 
     const possibleKeywords = multiWordStarts[firstWord];

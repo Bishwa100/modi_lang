@@ -1,0 +1,33 @@
+namaste
+
+// suno mitron: ye hai Modi Lang ka rally control demo!
+
+mann_ki_baat("🚫 Modi Rally Control 🚫");
+mann_ki_baat("======================");
+
+mann_ki_baat("\n--- Normal Attendance ---");
+sabka_saath (modi i = 1; i <= 5; i = i + 1) {
+    mann_ki_baat("Day " + i + ": Attendance = 5000 ✅");
+}
+
+mann_ki_baat("\n--- Traffic Jam at Day 3! Bas kar! ---");
+sabka_saath (modi i = 1; i <= 5; i = i + 1) {
+    agar_modi (i same2same 3) {
+        mann_ki_baat("Day " + i + ": Traffic jam! Bas kar! 🔴");
+        bas_kar;
+    }
+    mann_ki_baat("Day " + i + ": Attendance = 5000 ✅");
+}
+
+mann_ki_baat("\n--- Rain at Day 5! Aage badho! ---");
+sabka_saath (modi i = 1; i <= 5; i = i + 1) {
+    agar_modi (i same2same 5) {
+        mann_ki_baat("Day " + i + ": Heavy rain! Aage badho! 🌧️");
+        aage_badho;
+    }
+    mann_ki_baat("Day " + i + ": Attendance = 5000 ✅");
+}
+
+mann_ki_baat("\n=== Demo complete! Jai Hind! 🇮🇳 ===");
+
+jai_hind

@@ -41,12 +41,25 @@ Modi Lang is a **satirical esoteric programming language** that replaces boring 
 | `delete` / `clear` | `swachh_bharat` | _Clean up!_ 🧹 |
 | `end program` | `jai_hind` | _Every program ends with patriotism_ |
 | `start program` | `namaste` | _Begin with Indian greeting_ 🙏 |
+| `else` (block) | `bas_kar` | _"Bas kar!"_ — stop execution immediately |
+| `length` | `lambai` | _"Length in Hindi"_ — measure arrays/strings |
+| `push` | `jodo_rally` | _"Add to rally"_ — append to array |
+| `pop` | `nikalo` | _"Remove"_ — pop from array |
+| `type check` | `type_kya_hai` | _"What type is this?"_ — check variable type |
 | `AND` | `aur` | _And in Hindi_ |
 | `OR` | `ya` | _Or in Hindi_ |
 | `NOT` | `bilkul_nahi` | _"Absolutely not!"_ |
 | `==` | `same2same` | _Equality check, desi style_ |
 | `!=` | `jumla_hai` | _"That's a jumla!"_ — not equal |
 | `comment` | `// suno mitron` | _Listen friends..._ (ignored by interpreter) |
+| `type conversion` | `aankda()` / `bhaashan()` | _Convert to number/string_ |
+| `string split` | `split()` | _Split string by delimiter_ |
+| `uppercase` | `uppercase()` | _Convert to uppercase_ |
+| `lowercase` | `lowercase()` | _Convert to lowercase_ |
+| `absolute` | `abs()` | _Absolute value_ |
+| `power` | `power(a, b)` | _a to the power of b_ |
+| `random` | `random()` / `random(min, max)` | _Random number generator_ |
+| `floor/ceil/round` | `floor()` / `ceil()` / `round()` | _Math rounding functions_ |
 
 ### Data Types
 
@@ -57,6 +70,7 @@ Modi Lang is a **satirical esoteric programming language** that replaces boring 
 | Boolean | `Acche_din / Jumla` | `modi sach = acche_din;` |
 | Array | `Rally` | `modi crowd = [1, 2, 3];` |
 | Null | `Nota` | `modi result = nota;` |
+| Function | `Mitron` | `mitron myfunc() { ... }` |
 
 ### Operators
 
@@ -161,6 +175,217 @@ sabka_saath (modi i = 1; i <= 30; i = i + 1) {
 jai_hind
 ```
 
+### 6. Random Number Generator (Election Prediction) 🎲
+```
+namaste
+
+modi prediction = random(1, 100);
+mann_ki_baat(" Election prediction: " + prediction + "%");
+
+agar_modi (prediction > 50) {
+    mann_ki_baat("Acche din aane wale hain! 🎉");
+} nahi_toh {
+    mann_ki_baat("Congress wapas aayenge? 😅");
+}
+
+jai_hind
+```
+
+### 7. Array Operations (Rally Management) 📊
+```
+namaste
+
+modi states = ["Gujarat", "UP", "Maharashtra"];
+mann_ki_baat("Current states: " + states);
+
+jodo_rally(states, "Bihar");
+mann_ki_baat("After adding Bihar: " + states);
+mann_ki_baat("Total states: " + lambai(states));
+
+modi last = nikalo(states);
+mann_ki_baat("Removed last: " + last);
+mann_ki_baat("Remaining: " + states);
+
+jai_hind
+```
+
+### 8. String Functions (Press Conference) 📢
+```
+namaste
+
+modi speech = "mitron, bhaiyo aur behno!";
+mann_ki_baat("Original: " + speech);
+
+modi upper = uppercase(speech);
+mann_ki_baat("Shout version: " + upper);
+
+modi lower = lowercase(speech);
+mann_ki_baat("Whisper version: " + lower);
+
+modi words = split(speech, ", ");
+mann_ki_baat("Words: " + words);
+mann_ki_baat("Word count: " + lambai(words));
+
+jai_hind
+```
+
+### 9. Type Checking (What Am I?) 🤔
+```
+namaste
+
+modi x = 42;
+modi y = "42";
+modi z = acche_din;
+modi w = nota;
+
+mann_ki_baat("x type: " + type_kya_hai(x));
+mann_ki_baat("y type: " + type_kya_hai(y));
+mann_ki_baat("z type: " + type_kya_hai(z));
+mann_ki_baat("w type: " + type_kya_hai(w));
+
+modi converted = aankda(y);
+mann_ki_baat("'42' converted to number: " + converted);
+mann_ki_baat("Type after conversion: " + type_kya_hai(converted));
+
+jai_hind
+```
+
+### 10. Math Functions (Budget Calculator) 💰
+```
+namaste
+
+modi income = 1000000;
+modi tax_rate = 0.3;
+
+// Calculate tax with power function
+modi tax = income * power(tax_rate, 1);
+mann_ki_baat("Tax amount: ₹" + tax);
+
+modi rounded = round(tax);
+mann_ki_baat("Rounded tax: ₹" + rounded);
+
+modi ceil_tax = ceil(tax);
+modi floor_tax = floor(tax);
+mann_ki_baat("Ceil tax: ₹" + ceil_tax);
+mann_ki_baat("Floor tax: ₹" + floor_tax);
+
+modi absolute = abs(-50000);
+mann_ki_baat("Absolute value of -50000: " + absolute);
+
+jai_hind
+```
+
+### 11. Break & Continue (Rally Control) 🚫
+```
+namaste
+
+mann_ki_baat("Rally attendance tracker:");
+
+sabka_saath (modi i = 1; i <= 10; i = i + 1) {
+    agar_modi (i same2same 3) {
+        mann_ki_baat("  Day " + i + ": Traffic jam! Bas kar! 🔴");
+        bas_kar;
+    }
+    
+    agar_modi (i same2same 5) {
+        mann_ki_baat("  Day " + i + ": Skipping due to rain! Aage badho! 🌧️");
+        aage_badho;
+    }
+    
+    mann_ki_baat("  Day " + i + ": Attendance: 5000 people ✅");
+}
+
+jai_hind
+```
+
+### 12. Nested Functions & Recursion (The Never-Ending Speech) 🗣️
+```
+namaste
+
+mitron factorial(n) {
+    agar_modi (n same2same 0 || n same2same 1) {
+        laut_aao 1;
+    }
+    laut_aao n * factorial(n - 1);
+}
+
+modi num = 5;
+mann_ki_baat("Factorial of " + num + " is: " + factorial(num));
+
+mitron fibonacci(n) {
+    agar_modi (n same2same 0) { laut_aao 0; }
+    agar_modi (n same2same 1) { laut_aao 1; }
+    laut_aao fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+modi fib_num = 7;
+mann_ki_baat("Fibonacci(" + fib_num + ") = " + fibonacci(fib_num));
+
+jai_hind
+```
+
+### 13. Try-Catch Error Handling (Pakoda Emergency) 🍳
+```
+namaste
+
+mitron divide_safely(a, b) {
+    modi_hai_toh {
+        laut_aao a / b;
+    } pakoda (error) {
+        mann_ki_baat("Pakoda caught: " + error);
+        laut_aao "jumla";
+    }
+}
+
+mann_ki_baat("10 / 2 = " + divide_safely(10, 2));
+mann_ki_baat("10 / 0 = " + divide_safely(10, 0));
+mann_ki_baat("10 / 'hi' = " + divide_safely(10, "hi"));
+
+jai_hind
+```
+
+### 14. Input/Output (Chai Pe Charcha) ☕
+```
+namaste
+
+mann_ki_baat("☕ Chai Pe Charcha — Let's talk!");
+
+modi name = chai_pe_charcha("Aapka naam kya hai? ");
+mann_ki_baat("Namaste, " + name + " ji! 🙏");
+
+modi age = aankda(chai_pe_charcha("Aapki umar? "));
+mann_ki_baat("Aap " + age + " saal ke hain! Acche din aayenge! 🎉");
+
+jai_hind
+```
+
+### 15. Random Election Prediction 🎲
+See `examples/election.modi`
+
+### 16. Array Rally Management 📊
+See `examples/rally.modi`
+
+### 17. String Press Conference 📢
+See `examples/press.modi`
+
+### 18. Type Checking & Conversion 🤔
+See `examples/types.modi`
+
+### 19. Budget Calculator 💰
+See `examples/budget.modi`
+
+### 20. Rally Control (bas_kar & aage_badho) 🚫
+See `examples/rally_control.modi`
+
+### 21. Recursion (Factorial & Fibonacci) 🗣️
+See `examples/recursion.modi`
+
+### 22. Error Handling (Try-Catch) 🛡️
+See `examples/error_handling.modi`
+
+### 23. Chai Pe Charcha (Input) ☕
+See `examples/chai.modi`
+
 ---
 
 ## 😤 Error Messages (The Best Part!)
@@ -179,6 +404,23 @@ jai_hind
 | Unknown Token | `"Ye kya hai mitron? '{token}' toh hamare dictionary mein nahi hai!"` |
 | Too Many Arguments | `"Itne arguments? Ye Mann Ki Baat hai, Parliament nahi! 🏛️"` |
 | Runtime Crash | `"BREAKING: Program crashed! Blame it on Congress! 😂"` |
+| `bas_kar` outside loop | `"Bas kar? Pehle loop toh shuru karo! 🚫"` |
+| `aage_badho` outside loop | `"Aage badho? Loop mein toh aao! 🏃"` |
+| Division by Zero | `"Zero se divide? Ye toh jumla hai mitron! ➗🚫"` |
+| Type Error | `"Mitron, ye types match nahi kar rahe! Chai aur pakoda mix mat karo! 🍵🍳"` |
+| Stack Overflow | `"Itna recursion? Modiji bhi thak jayenge! 😵‍💫"` |
+| Missing Semicolon | `"Semicolon bhool gaye? Digital India mein precision zaroori hai! ⌨️"` |
+| File Not Found | `"File nahi mili! Shayad Swachh Bharat mein saaf ho gayi! 🧹"` |
+| Undefined Variable | `"Ye variable toh Note-bandi mein chala gaya! 💸 '{name}' not found."` |
+| Function Not Found | `"'{name}' function nahi mila! Ye toh jumla nikla! 📢"` |
+| Already Declared | `"'{name}' toh pehle se declare hai! Double engine sarkar nahi chalegi yahan! 🚂🚂"` |
+| Break Outside Loop | `"demonetization sirf loop ke andar use karo! Bahar demonetize nahi kar sakte! 💸"` |
+| Continue Outside Loop | `"aage_badho sirf loop ke andar! Pehle loop mein toh aao! 🏃"` |
+| Return Outside Function | `"laut_aao sirf function ke andar! Bina gaye kahan se lautoge? 🤔"` |
+| Invalid Operator | `"'{op}' operator '{type}' pe kaam nahi karta! Ye toh galat hai mitron! ❌"` |
+| Index Out of Bounds | `"Index ${index} out of bounds! Rally mein sirf ${length} log hain! 📊"` |
+| Not Callable | `"'{name}' ko call nahi kar sakte! Ye function nahi hai, mitron! 📞❌"` |
+| Division by Zero | `"Zero se divide? Ye toh jumla hai mitron! ➗🚫"` |
 
 ---
 
@@ -241,9 +483,19 @@ Modi Lang/
 ├── examples/
 │   ├── hello.modi            # Hello India
 │   ├── fizzbuzz.modi         # FizzBuzz Modi edition
+│   ├── demo.modi             # Feature demo
 │   ├── calculator.modi       # Basic calculator
 │   ├── fibonacci.modi        # Fibonacci series
-│   └── guess_game.modi       # Number guessing game
+│   ├── guess_game.modi       # Number guessing game
+│   ├── election.modi         # Random election prediction 🎲
+│   ├── rally.modi            # Array rally management 📊
+│   ├── press.modi            # String press conference 📢
+│   ├── types.modi            # Type checking & conversion 🤔
+│   ├── budget.modi           # Budget calculator 💰
+│   ├── rally_control.modi    # bas_kar & aage_badho 🚫
+│   ├── recursion.modi        # Factorial & Fibonacci 🗣️
+│   ├── error_handling.modi   # Try-Catch error handling 🛡️
+│   └── chai.modi             # Chai Pe Charcha (input) ☕
 ├── tests/
 │   ├── lexer.test.js         # Lexer tests
 │   ├── parser.test.js        # Parser tests
@@ -316,6 +568,36 @@ Modi Lang/
 ### Browser Testing (Phase 6)
 - Test web playground in browser
 - Verify code execution and output display
+
+---
+
+## 🎉 New Features Added!
+
+### Funny New Keywords & Functions:
+
+1. **bas_kar** — Stop execution immediately (like "Bas kar!" in a rally)
+2. **lambai** — Get length of arrays/strings (Hindi for "length")
+3. **jodo_rally** — Push to array (add to the rally!)
+4. **nikalo** — Pop from array (remove from rally)
+5. **type_kya_hai** — Check variable type (What type is this?)
+6. **aankda** / **bhaashan** — Type conversion (number/string)
+7. **split** — Split strings
+8. **uppercase** / **lowercase** — Case conversion
+9. **abs** — Absolute value
+10. **power** — Exponentiation
+11. **random** — Random number generator (election prediction!)
+12. **floor** / **ceil** / **round** — Math rounding functions
+
+### New Example Programs:
+- `election.modi` — Random election prediction 🎲
+- `rally.modi` — Array rally management 📊
+- `press.modi` — String press conference 📢
+- `types.modi` — Type checking & conversion 🤔
+- `budget.modi` — Budget calculator 💰
+- `rally_control.modi` — Loop control with bas_kar & aage_badho 🚫
+- `recursion.modi` — Factorial & Fibonacci 🗣️
+- `error_handling.modi` — Try-Catch error handling 🛡️
+- `chai.modi` — Chai Pe Charcha ☕
 
 ---
 

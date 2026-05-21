@@ -92,6 +92,9 @@ const ErrorMessages = {
   breakOutsideLoop: () =>
     `'demonetization' sirf loop ke andar use karo! Bahar demonetize nahi kar sakte! 💸`,
 
+  basKarOutsideLoop: () =>
+    `'bas_kar' sirf loop ke andar! Pehle loop toh shuru karo! 🚫`,
+
   continueOutsideLoop: () =>
     `'aage_badho' sirf loop ke andar! Pehle loop mein toh aao! 🏃`,
 

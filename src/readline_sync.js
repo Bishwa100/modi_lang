@@ -6,35 +6,21 @@ const fs = require('fs');
 function readlineSync(prompt) {
   if (prompt) process.stdout.write(prompt + ' ');
 
-  const buf = Buffer.alloc(1024);
-  let input = '';
-
-  // Read from stdin synchronously
-  try {
-    const fd = fs.openSync('/dev/stdin', 'r');
-    const bytesRead = fs.readSync(fd, buf, 0, buf.length);
-    input = buf.toString('utf8', 0, bytesRead).trim();
-    fs.closeSync(fd);
-  } catch (e) {
-    // Windows fallback using child_process
+  // Check if stdin has data
+  if (process.stdin.isTTY) {
+    // Interactive mode - return empty for now
+    // In a real app, use readline with async
+    return '';
+  } else {
+    // Piped input mode
+    const buf = Buffer.alloc(1024);
     try {
-      const { execSync } = require('child_process');
-      input = execSync('cmd /c "set /p input= && echo %input%"', {
-        stdio: ['inherit', 'pipe', 'pipe'],
-        encoding: 'utf8'
-      }).trim();
-    } catch (e2) {
-      // Last resort — use 0 for stdin fd
-      try {
-        const bytesRead = fs.readSync(0, buf, 0, buf.length);
-        input = buf.toString('utf8', 0, bytesRead).trim();
-      } catch (e3) {
-        input = '';
-      }
+      const bytesRead = fs.readSync(0, buf, 0, buf.length);
+      return buf.toString('utf8', 0, bytesRead).trim();
+    } catch (e) {
+      return '';
     }
   }
-
-  return input;
 }
 
 module.exports = readlineSync;

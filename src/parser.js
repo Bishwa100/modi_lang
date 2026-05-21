@@ -63,6 +63,7 @@ class Parser {
     if (this.check(TokenType.DEMONETIZATION)) { this.advance(); this.match(TokenType.SEMICOLON); return new AST.BreakStatement(); }
     if (this.check(TokenType.AAGE_BADHO)) { this.advance(); this.match(TokenType.SEMICOLON); return new AST.ContinueStatement(); }
     if (this.check(TokenType.MODI_HAI_TOH)) return this.parseTryCatch();
+    if (this.check(TokenType.BAS_KAR)) { this.advance(); this.match(TokenType.SEMICOLON); return new AST.BreakStatement(); }
     return this.parseExpressionStatement();
   }
 
@@ -184,6 +185,19 @@ class Parser {
     return new AST.TryCatchStatement(tryBlock, param, catchBlock);
   }
 
+  parseBuiltinCall() {
+    const name = this.advance().value;
+    this.expect(TokenType.LPAREN);
+    const args = [];
+    if (!this.check(TokenType.RPAREN)) {
+      args.push(this.parseExpression());
+      while (this.match(TokenType.COMMA)) args.push(this.parseExpression());
+    }
+    this.expect(TokenType.RPAREN);
+    // Don't require semicolon - builtin calls are expressions, not statements
+    return new AST.BuiltinCallExpression(name, args);
+  }
+
   parseBlock() {
     this.expect(TokenType.LBRACE);
     const stmts = [];
@@ -292,7 +306,9 @@ class Parser {
           while (this.match(TokenType.COMMA)) args.push(this.parseExpression());
         }
         this.expect(TokenType.RPAREN);
-        expr = new AST.CallExpression(expr.name || expr, args);
+        // If expr is a BuiltinCallExpression or Identifier, use its name
+        const calleeName = expr.type === 'BuiltinCallExpression' ? expr.name : (expr.type === 'Identifier' ? expr.name : expr);
+        expr = new AST.CallExpression(calleeName, args);
       } else if (this.match(TokenType.LBRACKET)) {
         const index = this.parseExpression();
         this.expect(TokenType.RBRACKET);
@@ -331,6 +347,14 @@ class Parser {
       if (!this.check(TokenType.RPAREN)) prompt = this.parseExpression();
       this.expect(TokenType.RPAREN);
       return new AST.InputExpression(prompt);
+    }
+    // Builtin function call (single-word like random, abs, etc.)
+    if (this.check(TokenType.RANDOM) || this.check(TokenType.ABS) || this.check(TokenType.POWER) ||
+        this.check(TokenType.FLOOR) || this.check(TokenType.CEIL) || this.check(TokenType.ROUND) ||
+        this.check(TokenType.LAMBAI) || this.check(TokenType.JODO_RALLY) || this.check(TokenType.NIKALO) ||
+        this.check(TokenType.TYPE_KYA_HAI) || this.check(TokenType.AANKDA) || this.check(TokenType.BHAASHAN) ||
+        this.check(TokenType.SPLIT) || this.check(TokenType.UPPERCASE) || this.check(TokenType.LOWERCASE)) {
+      return this.parseBuiltinCall();
     }
     // Grouped expression
     if (this.match(TokenType.LPAREN)) {

@@ -209,6 +209,14 @@ class InputExpression {
   }
 }
 
+class BuiltinCallExpression {
+  constructor(name, args) {
+    this.type = 'BuiltinCallExpression';
+    this.name = name;
+    this.args = args;
+  }
+}
+
 module.exports = {
   Program,
   VariableDeclaration,
@@ -236,4 +244,5 @@ module.exports = {
   MemberExpression,
   IndexExpression,
   InputExpression,
+  BuiltinCallExpression,
 };

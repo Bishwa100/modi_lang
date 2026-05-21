@@ -1,0 +1,28 @@
+namaste
+
+// suno mitron: ye hai Modi Lang ka string press conference!
+
+mann_ki_baat("📢 Modi Press Conference 📢");
+mann_ki_baat("=========================");
+
+modi speech = "mitron, bhaiyo aur behno, acche din aane wale hain!";
+mann_ki_baat("Original speech: " + speech);
+
+modi upper = uppercase(speech);
+mann_ki_baat("\nShouting version (for rally):");
+mann_ki_baat(upper);
+
+modi lower = lowercase(speech);
+mann_ki_baat("\nWhisper version (for chai pe charcha):");
+mann_ki_baat(lower);
+
+modi words = split(speech, ", ");
+mann_ki_baat("\nWord count: " + lambai(words));
+mann_ki_baat("Words: " + words);
+
+modi tweet = "AcchedinAcchekin";
+mann_ki_baat("\nOriginal tweet: " + tweet);
+modi splitTweet = split(tweet, "Acch");
+mann_ki_baat("Split by 'Acch': " + splitTweet);
+
+jai_hind

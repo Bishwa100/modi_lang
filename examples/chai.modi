@@ -1,0 +1,22 @@
+namaste
+
+// suno mitron: ye hai Modi Lang ka chai pe charcha demo!
+
+mann_ki_baat("☕ Modi Chai Pe Charcha ☕");
+mann_ki_baat("=========================");
+
+modi name = "Modi Fan";
+mann_ki_baat("Namaste, " + name + " ji! 🙏");
+
+modi age = 25;
+mann_ki_baat("Aap " + age + " saal ke hain! Acche din aayenge! 🎉");
+
+modi city = "Delhi";
+mann_ki_baat("Oh! " + city + " toh bahut sundar sheher hai! 🌆");
+
+modi party = "BJP";
+mann_ki_baat("Ah! " + party + " toh acchi party hai! 👍");
+
+mann_ki_baat("\n=== Chai Pe Charcha Complete! Jai Hind! 🇮🇳 ===");
+
+jai_hind

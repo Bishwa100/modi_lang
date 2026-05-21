@@ -1,0 +1,35 @@
+namaste
+
+// suno mitron: ye hai Modi Lang ka type checker!
+
+mann_ki_baat("🤔 Modi Type Checker 🤔");
+mann_ki_baat("=====================");
+
+modi x = 42;
+modi y = "42";
+modi z = acche_din;
+modi w = nota;
+modi a = [1, 2, 3];
+modi b = "Namaste";
+
+mann_ki_baat("x = 42, type: " + type_kya_hai(x));
+mann_ki_baat("y = '42', type: " + type_kya_hai(y));
+mann_ki_baat("z = acche_din, type: " + type_kya_hai(z));
+mann_ki_baat("w = nota, type: " + type_kya_hai(w));
+mann_ki_baat("a = [1,2,3], type: " + type_kya_hai(a));
+mann_ki_baat("b = 'Namaste', type: " + type_kya_hai(b));
+
+mann_ki_baat("\n=== Type Conversion ===");
+
+modi convertedNum = aankda(y);
+mann_ki_baat("String '42' converted to number: " + convertedNum);
+mann_ki_baat("New type: " + type_kya_hai(convertedNum));
+
+modi convertedStr = bhaashan(x);
+mann_ki_baat("Number 42 converted to string: '" + convertedStr + "'");
+mann_ki_baat("New type: " + type_kya_hai(convertedStr));
+
+modi boolStr = bhaashan(z);
+mann_ki_baat("Boolean acche_din converted to string: '" + boolStr + "'");
+
+jai_hind

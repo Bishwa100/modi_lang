@@ -1,0 +1,28 @@
+namaste
+
+// suno mitron: ye hai Modi Lang ka error handling demo!
+
+mann_ki_baat("🛡️ Modi Error Handling (Pakoda Emergency) 🛡️");
+mann_ki_baat("==========================================");
+
+mitron divide_safely(a, b) {
+    modi_hai_toh {
+        laut_aao a / b;
+    } pakoda (error) {
+        mann_ki_baat("Pakoda caught error: " + error);
+        laut_aao "jumla";
+    }
+}
+
+mann_ki_baat("10 / 2 = " + divide_safely(10, 2));
+mann_ki_baat("10 / 0 = " + divide_safely(10, 0));
+mann_ki_baat("10 / 'hi' = " + divide_safely(10, "hi"));
+
+mann_ki_baat("\n=== Try-Catch with Variables ===");
+modi_hai_toh {
+    modi result = undefined_var;
+} pakoda (error) {
+    mann_ki_baat("Pakoda caught: " + error);
+}
+
+jai_hind

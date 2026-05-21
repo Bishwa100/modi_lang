@@ -1,0 +1,28 @@
+namaste
+
+// suno mitron: ye hai Modi Lang ka array rally manager!
+
+mann_ki_baat("📊 Modi Rally Manager 📊");
+mann_ki_baat("======================");
+
+modi states = ["Gujarat", "UP", "Maharashtra"];
+mann_ki_baat("Current states: " + states);
+mann_ki_baat("Total states: " + lambai(states));
+
+mann_ki_baat("\nAdding Bihar to rally...");
+jodo_rally(states, "Bihar");
+mann_ki_baat("New states: " + states);
+mann_ki_baat("Total states: " + lambai(states));
+
+mann_ki_baat("\nAdding Karnataka...");
+jodo_rally(states, "Karnataka");
+mann_ki_baat("New states: " + states);
+
+mann_ki_baat("\nRemoving last state...");
+modi removed = nikalo(states);
+mann_ki_baat("Removed: " + removed);
+mann_ki_baat("Remaining: " + states);
+
+mann_ki_baat("\nFinal count: " + lambai(states) + " states! 🇮🇳");
+
+jai_hind

@@ -31,6 +31,22 @@ const TokenType = {
   JAI_HIND: 'JAI_HIND',             // program end
   VISHWAGURU: 'VISHWAGURU',         // class
   NAYA_BHARAT: 'NAYA_BHARAT',       // new
+  BAS_KAR: 'BAS_KAR',               // break (alternative)
+  LAMBAI: 'LAMBAI',                 // length
+  JODO_RALLY: 'JODO_RALLY',         // push
+  NIKALO: 'NIKALO',                 // pop
+  TYPE_KYA_HAI: 'TYPE_KYA_HAI',     // type check
+  AANKDA: 'AANKDA',                 // convert to number
+  BHAASHAN: 'BHAASHAN',             // convert to string
+  SPLIT: 'SPLIT',                   // string split
+  UPPERCASE: 'UPPERCASE',           // uppercase
+  LOWERCASE: 'LOWERCASE',           // lowercase
+  ABS: 'ABS',                       // absolute value
+  POWER: 'POWER',                   // power function
+  RANDOM: 'RANDOM',                 // random number
+  FLOOR: 'FLOOR',                   // floor
+  CEIL: 'CEIL',                     // ceil
+  ROUND: 'ROUND',                   // round
 
   // Logical Keywords
   AUR: 'AUR',                       // AND
@@ -90,6 +106,22 @@ const Keywords = {
   'jai_hind': TokenType.JAI_HIND,
   'vishwaguru': TokenType.VISHWAGURU,
   'naya_bharat': TokenType.NAYA_BHARAT,
+  'bas_kar': TokenType.BAS_KAR,
+  'lambai': TokenType.LAMBAI,
+  'jodo_rally': TokenType.JODO_RALLY,
+  'nikalo': TokenType.NIKALO,
+  'type_kya_hai': TokenType.TYPE_KYA_HAI,
+  'aankda': TokenType.AANKDA,
+  'bhaashan': TokenType.BHAASHAN,
+  'split': TokenType.SPLIT,
+  'uppercase': TokenType.UPPERCASE,
+  'lowercase': TokenType.LOWERCASE,
+  'abs': TokenType.ABS,
+  'power': TokenType.POWER,
+  'random': TokenType.RANDOM,
+  'floor': TokenType.FLOOR,
+  'ceil': TokenType.CEIL,
+  'round': TokenType.ROUND,
   'aur': TokenType.AUR,
   'ya': TokenType.YA,
   'bilkul_nahi': TokenType.BILKUL_NAHI,

@@ -1,0 +1,22 @@
+namaste
+
+// suno mitron: ye hai Modi Lang ka random election prediction!
+
+mann_ki_baat("🎲 Modi Election Prediction Engine 🎲");
+mann_ki_baat("======================================");
+
+modi prediction = random(0, 100);
+mann_ki_baat("Modi's popularity: " + prediction + "%");
+
+agar_modi (prediction > 60) {
+    mann_ki_baat("✅ Acche din aane wale hain! Govt will continue! 🎉");
+} warna_modi (prediction > 40) {
+    mann_ki_baat("🤔 Coalition banega? Congress wapas aayenge? 🤔");
+} nahi_toh {
+    mann_ki_baat("❌ Congress 2.0! Modi ji退场! 😅");
+}
+
+modi state = "Gujarat"; // Simplified - random with multiple string args not supported
+mann_ki_baat("Next election state: " + state);
+
+jai_hind

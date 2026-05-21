@@ -14,6 +14,7 @@ class Evaluator {
     this.globalEnv = new Environment();
     this.callDepth = 0;
     this.maxCallDepth = 500;
+    this.inLoop = false;
     this.output = []; // capture output for testing
   }
 
@@ -33,8 +34,12 @@ class Evaluator {
       case 'ForStatement': return this.evalFor(node, env);
       case 'FunctionDeclaration': return this.evalFuncDecl(node, env);
       case 'ReturnStatement': return this.evalReturn(node, env);
-      case 'BreakStatement': throw new BreakSignal();
-      case 'ContinueStatement': throw new ContinueSignal();
+      case 'BreakStatement': 
+        if (this.inLoop) throw new BreakSignal();
+        throw new ModiRuntimeError(ErrorMessages.basKarOutsideLoop());
+      case 'ContinueStatement': 
+        if (this.inLoop) throw new ContinueSignal();
+        throw new ModiRuntimeError(ErrorMessages.breakOutsideLoop());
       case 'TryCatchStatement': return this.evalTryCatch(node, env);
       case 'ExpressionStatement': return this.evaluate(node.expression, env);
       case 'NumberLiteral': return node.value;
@@ -49,6 +54,7 @@ class Evaluator {
       case 'CallExpression': return this.evalCall(node, env);
       case 'IndexExpression': return this.evalIndex(node, env);
       case 'InputExpression': return this.evalInput(node, env);
+      case 'BuiltinCallExpression': return this.evalBuiltin(node, env);
       default:
         throw new ModiRuntimeError(ErrorMessages.runtimeCrash(`Unknown node: ${node.type}`));
     }
@@ -99,6 +105,7 @@ class Evaluator {
   }
 
   evalWhile(node, env) {
+    this.inLoop = true;
     while (this.isTruthy(this.evaluate(node.condition, env))) {
       try {
         this.evalBlock(node.body, env);
@@ -108,10 +115,12 @@ class Evaluator {
         throw e;
       }
     }
+    this.inLoop = false;
     return null;
   }
 
   evalFor(node, env) {
+    this.inLoop = true;
     const forEnv = env.createChild();
     this.evaluate(node.init, forEnv);
     while (this.isTruthy(this.evaluate(node.condition, forEnv))) {
@@ -124,6 +133,7 @@ class Evaluator {
       }
       this.evaluate(node.update, forEnv);
     }
+    this.inLoop = false;
     return null;
   }
 
@@ -154,10 +164,10 @@ class Evaluator {
     const name = typeof node.callee === 'string' ? node.callee : node.callee;
     const args = node.args.map(a => this.evaluate(a, env));
 
-    // Check builtins first
-    if (builtins[name]) {
-      try { return builtins[name](args); }
-      catch (e) { throw new ModiRuntimeError(e.message); }
+    // Check builtins first (single-word builtins like random, abs, etc.)
+    if (['random', 'abs', 'power', 'floor', 'ceil', 'round', 'lambai', 'jodo_rally', 'nikalo', 
+         'type_kya_hai', 'aankda', 'bhaashan', 'split', 'uppercase', 'lowercase'].includes(name)) {
+      return this.evalBuiltin({ name: name, args: args }, env);
     }
 
     // User-defined function
@@ -252,6 +262,87 @@ class Evaluator {
   evalInput(node, env) {
     const prompt = node.prompt ? this.evaluate(node.prompt, env) : '';
     return readlineSync(this.stringify(prompt));
+  }
+
+  evalBuiltin(node, env) {
+    const name = node.name;
+    const args = node.args.map(a => this.evaluate(a, env));
+
+    switch (name) {
+      case 'lambai':
+        if (args.length !== 1) throw new ModiRuntimeError("'lambai' ko ek argument do!");
+        if (typeof args[0] === 'string' || Array.isArray(args[0])) return args[0].length;
+        throw new ModiRuntimeError("'lambai' sirf string ya array pe chalega!");
+      
+      case 'jodo_rally':
+        if (args.length !== 2) throw new ModiRuntimeError("'jodo_rally' ko array aur value do!");
+        if (!Array.isArray(args[0])) throw new ModiRuntimeError("Pehla argument array hona chahiye!");
+        args[0].push(args[1]);
+        return args[0];
+      
+      case 'nikalo':
+        if (args.length !== 1) throw new ModiRuntimeError("'nikalo' ko ek array do!");
+        if (!Array.isArray(args[0])) throw new ModiRuntimeError("Argument array hona chahiye!");
+        return args[0].pop();
+      
+      case 'type_kya_hai':
+        if (args.length !== 1) throw new ModiRuntimeError("'type_kya_hai' ko ek argument do!");
+        const v = args[0];
+        if (v === null) return 'nota';
+        if (Array.isArray(v)) return 'rally';
+        if (typeof v === 'number') return 'aankda';
+        if (typeof v === 'string') return 'bhaashan';
+        if (typeof v === 'boolean') return v ? 'acche_din' : 'jumla';
+        return 'unknown';
+      
+      case 'aankda':
+        if (args.length !== 1) throw new ModiRuntimeError("'aankda' ko ek argument do!");
+        return Number(args[0]);
+      
+      case 'bhaashan':
+        if (args.length !== 1) throw new ModiRuntimeError("'bhaashan' ko ek argument do!");
+        return String(args[0]);
+      
+      case 'split':
+        if (args.length < 1 || args.length > 2) throw new ModiRuntimeError("'split' ko 1 ya 2 arguments do!");
+        return String(args[0]).split(args[1] || '');
+      
+      case 'uppercase':
+        if (args.length !== 1) throw new ModiRuntimeError("'uppercase' ko ek argument do!");
+        return String(args[0]).toUpperCase();
+      
+      case 'lowercase':
+        if (args.length !== 1) throw new ModiRuntimeError("'lowercase' ko ek argument do!");
+        return String(args[0]).toLowerCase();
+      
+      case 'abs':
+        if (args.length !== 1) throw new ModiRuntimeError("'abs' ko ek argument do!");
+        return Math.abs(args[0]);
+      
+      case 'power':
+        if (args.length !== 2) throw new ModiRuntimeError("'power' ko do numbers do!");
+        return Math.pow(args[0], args[1]);
+      
+      case 'random':
+        if (args.length === 0) return Math.random();
+        if (args.length === 2) return Math.floor(Math.random() * (args[1] - args[0] + 1)) + args[0];
+        throw new ModiRuntimeError("'random' ko 0 ya 2 arguments do!");
+      
+      case 'floor':
+        if (args.length !== 1) throw new ModiRuntimeError("'floor' ko ek argument do!");
+        return Math.floor(args[0]);
+      
+      case 'ceil':
+        if (args.length !== 1) throw new ModiRuntimeError("'ceil' ko ek argument do!");
+        return Math.ceil(args[0]);
+      
+      case 'round':
+        if (args.length !== 1) throw new ModiRuntimeError("'round' ko ek argument do!");
+        return Math.round(args[0]);
+      
+      default:
+        throw new ModiRuntimeError("Unknown builtin function: " + name);
+    }
   }
 
   evalBlock(stmts, parentEnv) {

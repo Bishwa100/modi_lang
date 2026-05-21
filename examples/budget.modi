@@ -1,0 +1,33 @@
+namaste
+
+// suno mitron: ye hai Modi Lang ka budget calculator!
+
+mann_ki_baat("💰 Modi Budget Calculator 💰");
+mann_ki_baat("===========================");
+
+modi income = 1000000;
+modi tax_rate = 0.3;
+
+mann_ki_baat("Income: ₹" + income);
+mann_ki_baat("Tax rate: " + (tax_rate * 100) + "%");
+
+modi tax = income * power(tax_rate, 1);
+mann_ki_baat("\nTax amount: ₹" + tax);
+
+modi rounded = round(tax);
+mann_ki_baat("Rounded tax: ₹" + rounded);
+
+modi ceil_tax = ceil(tax);
+mann_ki_baat("Ceil tax (government version): ₹" + ceil_tax);
+
+modi floor_tax = floor(tax);
+mann_ki_baat("Floor tax (opposition version): ₹" + floor_tax);
+
+modi diff = abs(floor_tax - ceil_tax);
+mann_ki_baat("Difference: ₹" + diff);
+
+modi expense = -50000;
+mann_ki_baat("\nExpense: ₹" + expense);
+mann_ki_baat("Absolute expense: ₹" + abs(expense));
+
+jai_hind

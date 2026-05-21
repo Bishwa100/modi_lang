@@ -183,6 +183,129 @@ sabka_saath (modi i = 1; i <= 30; i = i + 1) {
 jai_hind
 ```
 
+### Election Prediction — Random Numbers 🎲
+```
+namaste
+
+modi prediction = random(1, 100);
+mann_ki_baat("Election prediction: " + prediction + "%");
+
+agar_modi (prediction > 50) {
+    mann_ki_baat("Acche din aane wale hain! 🎉");
+} nahi_toh {
+    mann_ki_baat("Congress wapas aayenge? 😅");
+}
+
+jai_hind
+```
+
+### Array Management — Rally 📊
+```
+namaste
+
+modi states = ["Gujarat", "UP", "Maharashtra"];
+jodo_rally(states, "Bihar");
+mann_ki_baat("Total states: " + lambai(states));
+
+modi last = nikalo(states);
+mann_ki_baat("Removed: " + last);
+
+jai_hind
+```
+
+### String Functions — Press Conference 📢
+```
+namaste
+
+modi speech = "mitron, bhaiyo aur behno!";
+mann_ki_baat(uppercase(speech));
+mann_ki_baat(lowercase(speech));
+mann_ki_baat(split(speech, ", "));
+
+jai_hind
+```
+
+### Type Checking 🤔
+```
+namaste
+
+modi x = 42;
+modi y = "42";
+
+mann_ki_baat("x type: " + type_kya_hai(x));
+mann_ki_baat("y type: " + type_kya_hai(y));
+
+modi converted = aankda(y);
+mann_ki_baat("Converted: " + converted);
+
+jai_hind
+```
+
+### Math Functions — Budget 💰
+```
+namaste
+
+modi income = 1000000;
+modi tax = income * power(0.3, 1);
+mann_ki_baat("Tax: ₹" + round(tax));
+mann_ki_baat("Ceil: ₹" + ceil(tax));
+mann_ki_baat("Floor: ₹" + floor(tax));
+
+modi diff = abs(-50000);
+mann_ki_baat("Absolute: " + diff);
+
+jai_hind
+```
+
+### Loop Control — bas_kar & aage_badho 🚫
+```
+namaste
+
+sabka_saath (modi i = 1; i <= 10; i = i + 1) {
+    agar_modi (i same2same 5) {
+        bas_kar;  // Stop immediately!
+    }
+    agar_modi (i same2same 3) {
+        aage_badho;  // Skip this iteration!
+    }
+    mann_ki_baat(i);
+}
+
+jai_hind
+```
+
+### Recursion — Factorial 🗣️
+```
+namaste
+
+mitron factorial(n) {
+    agar_modi (n same2same 0) { laut_aao 1; }
+    laut_aao n * factorial(n - 1);
+}
+
+mann_ki_baat("5! = " + factorial(5));
+
+jai_hind
+```
+
+### Error Handling — Try-Catch 🛡️
+```
+namaste
+
+mitron divide_safely(a, b) {
+    modi_hai_toh {
+        laut_aao a / b;
+    } pakoda (error) {
+        mann_ki_baat("Error: " + error);
+        laut_aao "jumla";
+    }
+}
+
+mann_ki_baat(divide_safely(10, 0));
+
+jai_hind
+```
+
 ---
 
 ## 😤 Error Messages (The Best Part!)
@@ -207,17 +330,22 @@ Modi Lang doesn't just show errors — it *roasts* you:
 | Function | Description |
 |---|---|
 | `mann_ki_baat(value)` | Print to console |
-| `chai_pe_charcha(prompt)` | Read user input |
+| `chai_pe_charcha(prompt)` | Read user input ☕ |
 | `lambai(array_or_string)` | Get length |
 | `aankda(value)` | Convert to number |
 | `bhaashan(value)` | Convert to string |
 | `jodo_rally(array, value)` | Push to array |
 | `nikalo(array)` | Pop from array |
 | `type_kya_hai(value)` | Get type name |
-| `random(min, max)` | Random number |
-| `power(base, exp)` | Exponentiation |
+| `split(str, delimiter)` | Split string |
 | `uppercase(str)` | To uppercase |
 | `lowercase(str)` | To lowercase |
+| `abs(value)` | Absolute value |
+| `power(base, exp)` | Exponentiation |
+| `random()` / `random(min, max)` | Random number 🎲 |
+| `floor(value)` | Floor |
+| `ceil(value)` | Ceiling |
+| `round(value)` | Round |
 
 ---
 
@@ -247,11 +375,18 @@ Modi Lang/
 │   ├── errors.js        # Funny error messages
 │   └── repl.js          # Interactive REPL
 ├── examples/
-│   ├── hello.modi       # Hello World
-│   ├── fizzbuzz.modi    # FizzBuzz Modi edition
-│   ├── calculator.modi  # Calculator with functions
-│   ├── fibonacci.modi   # Fibonacci series
-│   └── demo.modi        # Full feature demo
+│   ├── hello.modi          # Hello World
+│   ├── fizzbuzz.modi       # FizzBuzz Modi edition
+│   ├── demo.modi           # Full feature demo
+│   ├── election.modi       # Random election prediction 🎲
+│   ├── rally.modi          # Array rally management 📊
+│   ├── press.modi          # String press conference 📢
+│   ├── types.modi          # Type checking & conversion 🤔
+│   ├── budget.modi         # Budget calculator 💰
+│   ├── rally_control.modi  # bas_kar & aage_badho 🚫
+│   ├── recursion.modi      # Factorial & Fibonacci 🗣️
+│   ├── error_handling.modi # Try-Catch error handling 🛡️
+│   └── chai.modi           # Chai Pe Charcha ☕
 ├── package.json
 └── README.md
 ```

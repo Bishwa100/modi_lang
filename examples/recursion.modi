@@ -1,0 +1,32 @@
+namaste
+
+// suno mitron: ye hai Modi Lang ka factorial aur fibonacci!
+
+mann_ki_baat("🗣️ Modi Never-Ending Speech Engine 🗣️");
+mann_ki_baat("====================================");
+
+mitron factorial(n) {
+    agar_modi (n same2same 0 || n same2same 1) {
+        laut_aao 1;
+    }
+    laut_aao n * factorial(n - 1);
+}
+
+modi num = 5;
+mann_ki_baat("Factorial of " + num + " = " + factorial(num));
+
+num = 10;
+mann_ki_baat("Factorial of " + num + " = " + factorial(num));
+
+mitron fibonacci(n) {
+    agar_modi (n same2same 0) { laut_aao 0; }
+    agar_modi (n same2same 1) { laut_aao 1; }
+    laut_aao fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+mann_ki_baat("\nFibonacci sequence:");
+sabka_saath (modi i = 0; i <= 10; i = i + 1) {
+    mann_ki_baat("fib(" + i + ") = " + fibonacci(i));
+}
+
+jai_hind
