@@ -7,7 +7,7 @@
 [![npm version](https://img.shields.io/npm/v/modi-lang.svg?style=flat-square&color=FF9933)](https://www.npmjs.com/package/modi-lang)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![Node.js](https://img.shields.io/badge/Node.js-%3E%3D16-339933?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org)
-[![VS Code Extension](https://img.shields.io/badge/VS%20Code-Extension-007ACC?style=flat-square&logo=visual-studio-code)](https://github.com/bishwa100/modi-lang/tree/main/modi-lang-vscode)
+[![VS Code Extension](https://img.shields.io/badge/VS%20Code-Extension-007ACC?style=flat-square&logo=visual-studio-code)](https://github.com/bishwa100/modi_lang/tree/main/modi-lang-vscode)
 
 Modi Lang is a hilarious, fully functional programming language where every keyword is a famous Modi catchphrase. Write programs that compile your patriotism into actual code! 🎉
 
@@ -36,12 +36,12 @@ That's it! The `modi` command is now available globally. 🎉
 
 **Windows (PowerShell):**
 ```powershell
-irm https://raw.githubusercontent.com/bishwa100/modi-lang/main/install.ps1 | iex
+irm https://raw.githubusercontent.com/bishwa100/modi_lang/main/install.ps1 | iex
 ```
 
 **Mac / Linux:**
 ```bash
-curl -fsSL https://raw.githubusercontent.com/bishwa100/modi-lang/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/bishwa100/modi_lang/main/install.sh | bash
 ```
 
 ### Verify Installation

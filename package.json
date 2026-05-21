@@ -34,11 +34,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bishwa100/modi-lang"
+    "url": "https://github.com/bishwa100/modi_lang"
   },
-  "homepage": "https://github.com/bishwa100/modi-lang#readme",
+  "homepage": "https://github.com/bishwa100/modi_lang#readme",
   "bugs": {
-    "url": "https://github.com/bishwa100/modi-lang/issues"
+    "url": "https://github.com/bishwa100/modi_lang/issues"
   },
   "engines": {
     "node": ">=16.0.0"
