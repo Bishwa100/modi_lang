@@ -4,7 +4,7 @@
   "description": "🇮🇳 Modi Lang — The Deshbhakt Programming Language. Mitron, ab coding bhi deshbhakti hai!",
   "main": "src/evaluator.js",
   "bin": {
-    "modi": "./bin/modi.js"
+    "modi": "bin/modi.js"
   },
   "scripts": {
     "start": "node bin/modi.js",
