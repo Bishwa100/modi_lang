@@ -541,3 +541,96 @@ describe('Edge Cases', () => {
     assert.deepStrictEqual(output, ['1', '2', 'Fizz', '4', '5']);
   });
 });
+
+// ==========================================
+// 🧪 OPPOSITION PARTY ROASTS 🤣
+// ==========================================
+describe('Opposition Party Roasts 🤣', () => {
+  it('cpim should always return 0 (zero seats!)', () => {
+    const output = runModi('mann_ki_baat(cpim);');
+    assert.deepStrictEqual(output, ['0']);
+  });
+
+  it('congress should always return empty string', () => {
+    const output = runModi('mann_ki_baat("Congress: " + congress);');
+    assert.deepStrictEqual(output, ['Congress: ']);
+  });
+
+  it('aap should always return "muft"', () => {
+    const output = runModi('mann_ki_baat(aap);');
+    assert.deepStrictEqual(output, ['muft']);
+  });
+
+  it('tmc should always return "khela_hobe"', () => {
+    const output = runModi('mann_ki_baat(tmc);');
+    assert.deepStrictEqual(output, ['khela_hobe']);
+  });
+
+  it('rjd should always return "jungle_raj"', () => {
+    const output = runModi('mann_ki_baat(rjd);');
+    assert.deepStrictEqual(output, ['jungle_raj']);
+  });
+
+  it('pappu should always return null (nota)', () => {
+    const output = runModi('mann_ki_baat(pappu);');
+    assert.deepStrictEqual(output, ['nota']);
+  });
+
+  it('sp should always return "cycle"', () => {
+    const output = runModi('mann_ki_baat(sp);');
+    assert.deepStrictEqual(output, ['cycle']);
+  });
+
+  it('aimim should always return 1', () => {
+    const output = runModi('mann_ki_baat(aimim);');
+    assert.deepStrictEqual(output, ['1']);
+  });
+
+  it('bsp should always return "haathi"', () => {
+    const output = runModi('mann_ki_baat(bsp);');
+    assert.deepStrictEqual(output, ['haathi']);
+  });
+
+  it('jdu should always return "paltu"', () => {
+    const output = runModi('mann_ki_baat(jdu);');
+    assert.deepStrictEqual(output, ['paltu']);
+  });
+
+  it('cpim + aimim should equal 1 (0 + 1)', () => {
+    const output = runModi('mann_ki_baat(cpim + aimim);');
+    assert.deepStrictEqual(output, ['1']);
+  });
+
+  it('cpim should be falsy (0 is falsy)', () => {
+    const output = runModi(`
+      agar_modi (cpim) {
+        mann_ki_baat("impossible");
+      } nahi_toh {
+        mann_ki_baat("CPIM is nothing!");
+      }
+    `);
+    assert.deepStrictEqual(output, ['CPIM is nothing!']);
+  });
+
+  it('congress should be falsy (empty string is falsy)', () => {
+    const output = runModi(`
+      agar_modi (congress) {
+        mann_ki_baat("impossible");
+      } nahi_toh {
+        mann_ki_baat("Congress is empty!");
+      }
+    `);
+    assert.deepStrictEqual(output, ['Congress is empty!']);
+  });
+
+  it('pappu should be falsy (null is falsy)', () => {
+    const output = runModi(`
+      agar_modi (pappu) {
+        mann_ki_baat("impossible");
+      } nahi_toh {
+        mann_ki_baat("Pappu fail!");
+      }
+    `);
+    assert.deepStrictEqual(output, ['Pappu fail!']);
+  });
+});

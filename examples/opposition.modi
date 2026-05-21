@@ -1,0 +1,79 @@
+namaste
+
+// 🤣 Opposition Roast — Modi Lang Special Feature!
+// "Mitron, opposition ka haal dekhte hain!"
+
+mann_ki_baat("=== 🤣 Opposition Report Card ===");
+mann_ki_baat("");
+
+// CPIM — Always 0! Zero seats, zero impact! 😂
+modi cpim_seats = cpim;
+mann_ki_baat("CPIM seats: " + cpim_seats);
+mann_ki_baat("  → Zero seats, zero impact! Ab toh Russia bhi nahi bachayega! 😂");
+mann_ki_baat("");
+
+// Congress — Empty promises, empty result! 🫗
+modi congress_result = congress;
+mann_ki_baat("Congress achievements: \"" + congress_result + "\"");
+mann_ki_baat("  → Khaali hai, bilkul khaali! Jaise unki rally! 🫗");
+mann_ki_baat("");
+
+// AAP — Everything is free! 🆓
+modi aap_promise = aap;
+mann_ki_baat("AAP ka vaada: " + aap_promise);
+mann_ki_baat("  → Bijli muft, paani muft, bus muft... budget kahan se aayega? 🆓💸");
+mann_ki_baat("");
+
+// TMC — Khela Hobe! 🏏
+modi tmc_slogan = tmc;
+mann_ki_baat("TMC says: " + tmc_slogan);
+mann_ki_baat("  → Khela toh ho raha hai, lekin khelne wale kaun? 🏏");
+mann_ki_baat("");
+
+// Pappu — Can't pass! 🎓❌
+modi pappu_score = pappu;
+mann_ki_baat("Pappu ka result: " + pappu_score);
+mann_ki_baat("  → Pappu pass nahi hua! Fir se exam dena padega! 🎓❌");
+mann_ki_baat("");
+
+// AIMIM — Always 1! 1️⃣
+modi aimim_count = aimim;
+mann_ki_baat("AIMIM seats: " + aimim_count);
+mann_ki_baat("  → Ek hi seat, lekin speech 100 seats wali! 1️⃣🎤");
+mann_ki_baat("");
+
+// SP — Cycle chala raho! 🚲
+modi sp_symbol = sp;
+mann_ki_baat("SP mode of transport: " + sp_symbol);
+mann_ki_baat("  → Cycle pe chal ke hi Parliament pahunchenge! 🚲");
+mann_ki_baat("");
+
+// RJD — Jungle Raj! 🌿
+modi rjd_era = rjd;
+mann_ki_baat("RJD era: " + rjd_era);
+mann_ki_baat("  → Jungle mein mangal, aur mangal mein jungle! 🌿🐅");
+mann_ki_baat("");
+
+// BSP — Haathi! 🐘
+modi bsp_symbol = bsp;
+mann_ki_baat("BSP mascot: " + bsp_symbol);
+mann_ki_baat("  → Haathi chale, duniya hile... lekin votes nahi mile! 🐘");
+mann_ki_baat("");
+
+// JDU — Paltu! 🔄
+modi jdu_nature = jdu;
+mann_ki_baat("JDU nature: " + jdu_nature);
+mann_ki_baat("  → Aaj yahan, kal wahan... paltu chameleon! 🔄🦎");
+mann_ki_baat("");
+
+// The grand comparison!
+mann_ki_baat("=== 🏆 Final Score ===");
+mann_ki_baat("BJP: Majority! 🎉");
+mann_ki_baat("CPIM: " + cpim + " (Zero! 😂)");
+mann_ki_baat("Congress: \"" + congress + "\" (Khaali! 🫗)");
+mann_ki_baat("Pappu: " + pappu + " (Fail! ❌)");
+mann_ki_baat("AIMIM: " + aimim + " (Sirf ek! 1️⃣)");
+mann_ki_baat("");
+mann_ki_baat("Mitron, acche din sirf BJP ke saath! 🇮🇳");
+
+jai_hind

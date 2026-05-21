@@ -330,6 +330,17 @@ class Parser {
     if (this.match(TokenType.JUMLA)) return new AST.BooleanLiteral(false);
     // Null
     if (this.match(TokenType.NOTA)) return new AST.NullLiteral();
+    // 🤣 Opposition Party Roasts — each returns a hilariously fixed value
+    if (this.match(TokenType.CPIM)) return new AST.OppositionLiteral('cpim');
+    if (this.match(TokenType.CONGRESS)) return new AST.OppositionLiteral('congress');
+    if (this.match(TokenType.AAP)) return new AST.OppositionLiteral('aap');
+    if (this.match(TokenType.TMC)) return new AST.OppositionLiteral('tmc');
+    if (this.match(TokenType.RJD)) return new AST.OppositionLiteral('rjd');
+    if (this.match(TokenType.PAPPU)) return new AST.OppositionLiteral('pappu');
+    if (this.match(TokenType.SP)) return new AST.OppositionLiteral('sp');
+    if (this.match(TokenType.AIMIM)) return new AST.OppositionLiteral('aimim');
+    if (this.match(TokenType.BSP)) return new AST.OppositionLiteral('bsp');
+    if (this.match(TokenType.JDU)) return new AST.OppositionLiteral('jdu');
     // Array literal
     if (this.match(TokenType.LBRACKET)) {
       const elements = [];

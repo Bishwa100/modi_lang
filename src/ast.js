@@ -217,6 +217,14 @@ class BuiltinCallExpression {
   }
 }
 
+// 🤣 Opposition Party Roast Literals
+class OppositionLiteral {
+  constructor(party) {
+    this.type = 'OppositionLiteral';
+    this.party = party;  // cpim, congress, aap, tmc, rjd, pappu, sp, aimim, bsp, jdu
+  }
+}
+
 module.exports = {
   Program,
   VariableDeclaration,
@@ -245,4 +253,5 @@ module.exports = {
   IndexExpression,
   InputExpression,
   BuiltinCallExpression,
+  OppositionLiteral,
 };

@@ -10,6 +10,7 @@
     { "include": "#control-keywords" },
     { "include": "#declaration-keywords" },
     { "include": "#constants" },
+    { "include": "#opposition-roasts" },
     { "include": "#builtin-functions" },
     { "include": "#logical-operators" },
     { "include": "#comparison-operators" },
@@ -126,6 +127,14 @@
         {
           "name": "constant.language.null.modi",
           "match": "\\bnota\\b"
+        }
+      ]
+    },
+    "opposition-roasts": {
+      "patterns": [
+        {
+          "name": "constant.language.opposition.modi",
+          "match": "\\b(cpim|congress|aap|tmc|rjd|pappu|sp|aimim|bsp|jdu)\\b"
         }
       ]
     },

@@ -167,6 +167,46 @@ Acche din aane wale hain! 🎉
 | `NOT` | `bilkul_nahi` | Absolutely not! |
 | `// comment` | `// suno mitron` | Listen friends... (ignored) |
 
+### 🤣 Opposition Party Roasts (The Funniest Feature!)
+
+Use opposition party names as **constants** — each returns a hilariously fixed value:
+
+| Keyword | Value | The Roast 😂 |
+|---|---|---|
+| `cpim` | `0` | Zero seats, zero impact! CPIM = 0, always! 😂 |
+| `congress` | `""` (empty) | Empty promises, empty result! Khaali hai! 🫗 |
+| `aap` | `"muft"` | Everything is free! Revdi culture! 🆓💸 |
+| `tmc` | `"khela_hobe"` | Khela ho raha hai! 🏏 |
+| `rjd` | `"jungle_raj"` | Back to the jungle era! 🌿🐅 |
+| `pappu` | `nota` (null) | Pappu can't pass! 🎓❌ |
+| `sp` | `"cycle"` | Cycle chalate raho! 🚲 |
+| `aimim` | `1` | Ek hi seat milti hai, always! 1️⃣🎤 |
+| `bsp` | `"haathi"` | Elephant walking slow! 🐘 |
+| `jdu` | `"paltu"` | Switches sides every season! 🔄🦎 |
+
+**Example:**
+```
+// CPIM is always 0 — use it like a constant!
+mann_ki_baat("CPIM seats: " + cpim);          // Output: CPIM seats: 0
+
+// Pappu is always null — can't pass!
+agar_modi (pappu) {
+    mann_ki_baat("Impossible!");
+} nahi_toh {
+    mann_ki_baat("Pappu fail ho gaya!");       // This always runs! 😂
+}
+
+// Congress in a condition — empty = falsy!
+agar_modi (congress) {
+    mann_ki_baat("Never happens!");
+} nahi_toh {
+    mann_ki_baat("Congress khaali hai!");      // Always empty! 🫗
+}
+
+// Math with opposition
+mann_ki_baat(cpim + aimim);                    // Output: 1 (0 + 1)
+```
+
 ### Program Structure
 
 Every Modi Lang program starts with `namaste` and ends with `jai_hind`:

@@ -48,6 +48,18 @@ const TokenType = {
   CEIL: 'CEIL',                     // ceil
   ROUND: 'ROUND',                   // round
 
+  // 🤣 Opposition Party Roasts (Constants)
+  CPIM: 'CPIM',                       // always 0 (zero seats! 😂)
+  CONGRESS: 'CONGRESS',               // always "" (empty promises, empty result)
+  AAP: 'AAP',                         // always "muft" (everything free! 🆓)
+  TMC: 'TMC',                         // always "khela_hobe" (khela ho raha hai! 🏏)
+  RJD: 'RJD',                         // always "jungle_raj" (back to basics 🌿)
+  PAPPU: 'PAPPU',                     // always nota/null (Pappu can't pass! 🎓❌)
+  SP: 'SP',                           // always "cycle" (cycle chala raha hai 🚲)
+  AIMIM: 'AIMIM',                     // always 1 (ek hi seat milti hai! 1️⃣)
+  BSP: 'BSP',                         // always "haathi" (elephant walking slow 🐘)
+  JDU: 'JDU',                         // always "paltu" (switches sides! 🔄)
+
   // Logical Keywords
   AUR: 'AUR',                       // AND
   YA: 'YA',                         // OR
@@ -127,6 +139,17 @@ const Keywords = {
   'bilkul_nahi': TokenType.BILKUL_NAHI,
   'same2same': TokenType.SAME2SAME,
   'jumla_hai': TokenType.JUMLA_HAI,
+  // 🤣 Opposition Party Roasts
+  'cpim': TokenType.CPIM,
+  'congress': TokenType.CONGRESS,
+  'aap': TokenType.AAP,
+  'tmc': TokenType.TMC,
+  'rjd': TokenType.RJD,
+  'pappu': TokenType.PAPPU,
+  'sp': TokenType.SP,
+  'aimim': TokenType.AIMIM,
+  'bsp': TokenType.BSP,
+  'jdu': TokenType.JDU,
 };
 
 class Token {

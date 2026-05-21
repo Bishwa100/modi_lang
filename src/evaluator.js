@@ -55,6 +55,7 @@ class Evaluator {
       case 'IndexExpression': return this.evalIndex(node, env);
       case 'InputExpression': return this.evalInput(node, env);
       case 'BuiltinCallExpression': return this.evalBuiltin(node, env);
+      case 'OppositionLiteral': return this.evalOpposition(node);
       default:
         throw new ModiRuntimeError(ErrorMessages.runtimeCrash(`Unknown node: ${node.type}`));
     }
@@ -352,6 +353,23 @@ class Evaluator {
       result = this.evaluate(stmt, blockEnv);
     }
     return result;
+  }
+
+  // 🤣 Opposition Party Roasts — Each party returns a hilariously fixed value
+  evalOpposition(node) {
+    const OPPOSITION_ROASTS = {
+      'cpim':     0,                    // Zero seats, zero impact! 😂
+      'congress': "",                   // Empty promises, empty result! 🫗
+      'aap':      "muft",              // Everything is free! Revdi culture! 🆓
+      'tmc':      "khela_hobe",        // Khela ho raha hai! 🏏
+      'rjd':      "jungle_raj",        // Back to the jungle era! 🌿
+      'pappu':    null,                // Pappu can't pass! 🎓❌
+      'sp':       "cycle",             // Cycle chalate raho! 🚲
+      'aimim':    1,                   // Ek hi seat milti hai! 1️⃣
+      'bsp':      "haathi",            // Elephant walking slow! 🐘
+      'jdu':      "paltu",             // Switches sides every season! 🔄
+    };
+    return OPPOSITION_ROASTS[node.party];
   }
 
   isTruthy(val) {
