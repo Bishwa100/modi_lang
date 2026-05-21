@@ -1,0 +1,25 @@
+# VS Code extension (published separately)
+modi-lang-vscode/
+
+# Tests
+tests/
+
+# Git
+.git/
+.gitignore
+
+# Install scripts (not needed in npm package)
+install.sh
+install.ps1
+
+# Implementation plans
+implementation_plan.md
+
+# Editor
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

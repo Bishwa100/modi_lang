@@ -4,6 +4,11 @@
 
 > **"Mitron, ab coding bhi deshbhakti hai!"**
 
+[![npm version](https://img.shields.io/npm/v/modi-lang.svg?style=flat-square&color=FF9933)](https://www.npmjs.com/package/modi-lang)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+[![Node.js](https://img.shields.io/badge/Node.js-%3E%3D16-339933?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org)
+[![VS Code Extension](https://img.shields.io/badge/VS%20Code-Extension-007ACC?style=flat-square&logo=visual-studio-code)](https://github.com/bishwa100/modi-lang/tree/main/modi-lang-vscode)
+
 Modi Lang is a hilarious, fully functional programming language where every keyword is a famous Modi catchphrase. Write programs that compile your patriotism into actual code! 🎉
 
 ```
@@ -17,17 +22,90 @@ Modi Lang is a hilarious, fully functional programming language where every keyw
 
 ---
 
+## 📥 Installation
+
+### Quick Install (Recommended)
+
+```bash
+npm install -g modi-lang
+```
+
+That's it! The `modi` command is now available globally. 🎉
+
+### One-Line Install Scripts
+
+**Windows (PowerShell):**
+```powershell
+irm https://raw.githubusercontent.com/bishwa100/modi-lang/main/install.ps1 | iex
+```
+
+**Mac / Linux:**
+```bash
+curl -fsSL https://raw.githubusercontent.com/bishwa100/modi-lang/main/install.sh | bash
+```
+
+### Verify Installation
+
+```bash
+modi --version    # Modi Lang v1.0.0 🇮🇳
+modi help         # Show all commands
+```
+
+### Uninstall
+
+```bash
+npm uninstall -g modi-lang
+```
+
+---
+
+## 🎨 VS Code Extension (IDE Support)
+
+Get full syntax highlighting for `.modi` files in VS Code!
+
+### Install from Source
+
+1. Copy the `modi-lang-vscode` folder to your VS Code extensions:
+   - **Windows**: `%USERPROFILE%\.vscode\extensions\modi-lang`
+   - **Mac/Linux**: `~/.vscode/extensions/modi-lang`
+2. Restart VS Code
+3. Open any `.modi` file — enjoy colorful syntax! 🎨
+
+### Install from VSIX
+
+```bash
+cd modi-lang-vscode
+npx -y @vscode/vsce package
+# Then in VS Code: Ctrl+Shift+P → "Install from VSIX"
+```
+
+### Features
+- 🎨 Full syntax highlighting for all Modi Lang keywords
+- ⌨️ Auto-closing brackets and quotes
+- 💬 Comment toggling with `Ctrl+/`
+- 📁 `.modi` file icon and association
+- 🔧 Smart indentation
+
+---
+
 ## 🚀 Quick Start
 
 ```bash
-# Run a Modi Lang program
-node bin/modi.js run examples/hello.modi
+# Create a new project
+modi init my-project
+cd my-project
+
+# Run the program
+modi run main.modi
 
 # Start interactive REPL
-node bin/modi.js repl
+modi repl
+
+# Run any .modi file
+modi run examples/hello.modi
 
 # Show help
-node bin/modi.js help
+modi help
 ```
 
 ---
@@ -48,7 +126,7 @@ jai_hind
 
 Run it:
 ```bash
-node bin/modi.js run hello.modi
+modi run hello.modi
 ```
 
 Output:
@@ -183,97 +261,6 @@ sabka_saath (modi i = 1; i <= 30; i = i + 1) {
 jai_hind
 ```
 
-### Election Prediction — Random Numbers 🎲
-```
-namaste
-
-modi prediction = random(1, 100);
-mann_ki_baat("Election prediction: " + prediction + "%");
-
-agar_modi (prediction > 50) {
-    mann_ki_baat("Acche din aane wale hain! 🎉");
-} nahi_toh {
-    mann_ki_baat("Congress wapas aayenge? 😅");
-}
-
-jai_hind
-```
-
-### Array Management — Rally 📊
-```
-namaste
-
-modi states = ["Gujarat", "UP", "Maharashtra"];
-jodo_rally(states, "Bihar");
-mann_ki_baat("Total states: " + lambai(states));
-
-modi last = nikalo(states);
-mann_ki_baat("Removed: " + last);
-
-jai_hind
-```
-
-### String Functions — Press Conference 📢
-```
-namaste
-
-modi speech = "mitron, bhaiyo aur behno!";
-mann_ki_baat(uppercase(speech));
-mann_ki_baat(lowercase(speech));
-mann_ki_baat(split(speech, ", "));
-
-jai_hind
-```
-
-### Type Checking 🤔
-```
-namaste
-
-modi x = 42;
-modi y = "42";
-
-mann_ki_baat("x type: " + type_kya_hai(x));
-mann_ki_baat("y type: " + type_kya_hai(y));
-
-modi converted = aankda(y);
-mann_ki_baat("Converted: " + converted);
-
-jai_hind
-```
-
-### Math Functions — Budget 💰
-```
-namaste
-
-modi income = 1000000;
-modi tax = income * power(0.3, 1);
-mann_ki_baat("Tax: ₹" + round(tax));
-mann_ki_baat("Ceil: ₹" + ceil(tax));
-mann_ki_baat("Floor: ₹" + floor(tax));
-
-modi diff = abs(-50000);
-mann_ki_baat("Absolute: " + diff);
-
-jai_hind
-```
-
-### Loop Control — bas_kar & aage_badho 🚫
-```
-namaste
-
-sabka_saath (modi i = 1; i <= 10; i = i + 1) {
-    agar_modi (i same2same 5) {
-        bas_kar;  // Stop immediately!
-    }
-    agar_modi (i same2same 3) {
-        aage_badho;  // Skip this iteration!
-    }
-    mann_ki_baat(i);
-}
-
-jai_hind
-```
-
 ### Recursion — Factorial 🗣️
 ```
 namaste
@@ -284,24 +271,6 @@ mitron factorial(n) {
 }
 
 mann_ki_baat("5! = " + factorial(5));
-
-jai_hind
-```
-
-### Error Handling — Try-Catch 🛡️
-```
-namaste
-
-mitron divide_safely(a, b) {
-    modi_hai_toh {
-        laut_aao a / b;
-    } pakoda (error) {
-        mann_ki_baat("Error: " + error);
-        laut_aao "jumla";
-    }
-}
-
-mann_ki_baat(divide_safely(10, 0));
 
 jai_hind
 ```
@@ -363,32 +332,75 @@ Built as a **tree-walking interpreter** in Node.js. No external dependencies!
 
 ```
 Modi Lang/
-├── bin/modi.js          # CLI entry point
+├── bin/modi.js              # CLI entry point (the `modi` command)
 ├── src/
-│   ├── tokens.js        # Token types & keywords
-│   ├── ast.js           # AST node definitions
-│   ├── lexer.js         # Tokenizer
-│   ├── parser.js        # Parser
-│   ├── evaluator.js     # Interpreter
-│   ├── environment.js   # Variable scoping
-│   ├── builtins.js      # Built-in functions
-│   ├── errors.js        # Funny error messages
-│   └── repl.js          # Interactive REPL
-├── examples/
-│   ├── hello.modi          # Hello World
-│   ├── fizzbuzz.modi       # FizzBuzz Modi edition
-│   ├── demo.modi           # Full feature demo
-│   ├── election.modi       # Random election prediction 🎲
-│   ├── rally.modi          # Array rally management 📊
-│   ├── press.modi          # String press conference 📢
-│   ├── types.modi          # Type checking & conversion 🤔
-│   ├── budget.modi         # Budget calculator 💰
-│   ├── rally_control.modi  # bas_kar & aage_badho 🚫
-│   ├── recursion.modi      # Factorial & Fibonacci 🗣️
-│   ├── error_handling.modi # Try-Catch error handling 🛡️
-│   └── chai.modi           # Chai Pe Charcha ☕
-├── package.json
+│   ├── tokens.js            # Token types & keywords
+│   ├── ast.js               # AST node definitions
+│   ├── lexer.js             # Tokenizer
+│   ├── parser.js            # Parser
+│   ├── evaluator.js         # Interpreter
+│   ├── environment.js       # Variable scoping
+│   ├── builtins.js          # Built-in functions
+│   ├── errors.js            # Funny error messages
+│   └── repl.js              # Interactive REPL
+├── examples/                # Example .modi programs
+│   ├── hello.modi           # Hello World
+│   ├── fizzbuzz.modi        # FizzBuzz Modi edition
+│   ├── demo.modi            # Full feature demo
+│   └── ...                  # Many more examples!
+├── tests/                   # Test suite
+│   └── test_basic.js        # Comprehensive tests
+├── modi-lang-vscode/        # VS Code extension
+│   ├── syntaxes/            # TextMate grammar
+│   ├── language-configuration.json
+│   └── package.json
+├── install.sh               # Mac/Linux install script
+├── install.ps1              # Windows install script
+├── package.json             # npm package config
+├── LICENSE                  # MIT License
 └── README.md
+```
+
+---
+
+## 🛠️ CLI Commands
+
+| Command | Description |
+|---|---|
+| `modi run <file.modi>` | Run a Modi Lang program |
+| `modi repl` | Start interactive REPL |
+| `modi init [name]` | Create a new Modi Lang project |
+| `modi help` | Show help |
+| `modi version` | Show version |
+| `modi <file.modi>` | Run directly (shorthand) |
+
+---
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Make your changes
+4. Run tests: `npm test`
+5. Commit: `git commit -m 'Add amazing feature'`
+6. Push: `git push origin feature/amazing-feature`
+7. Open a Pull Request
+
+---
+
+## 📦 Publishing
+
+### Publish to npm
+```bash
+npm login
+npm publish
+```
+
+### Publish VS Code Extension
+```bash
+cd modi-lang-vscode
+npx -y @vscode/vsce package
+npx -y @vscode/vsce publish
 ```
 
 ---

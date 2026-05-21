@@ -1,0 +1,58 @@
+{
+  "name": "modi-lang",
+  "displayName": "Modi Lang",
+  "description": "🇮🇳 Syntax highlighting and language support for Modi Lang — The Deshbhakt Programming Language",
+  "version": "1.0.0",
+  "publisher": "bishwa",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#FF9933",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bishwa100/modi-lang"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "modi",
+        "aliases": [
+          "Modi Lang",
+          "modi",
+          "ModiLang"
+        ],
+        "extensions": [
+          ".modi"
+        ],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "icon.png",
+          "dark": "icon.png"
+        }
+      }
+    ],
+    "grammars": [
+      {
+        "language": "modi",
+        "scopeName": "source.modi",
+        "path": "./syntaxes/modi.tmLanguage.json"
+      }
+    ]
+  },
+  "keywords": [
+    "modi",
+    "modi-lang",
+    "programming-language",
+    "india",
+    "esoteric",
+    "hindi"
+  ],
+  "license": "MIT"
+}

@@ -11,14 +11,36 @@
     "repl": "node bin/modi.js repl",
     "test": "node --test tests/"
   },
+  "files": [
+    "bin/",
+    "src/",
+    "examples/",
+    "README.md",
+    "LICENSE"
+  ],
   "keywords": [
     "modi-lang",
-    "esoteric",
+    "modi",
     "programming-language",
-    "funny",
+    "esoteric",
     "interpreter",
-    "india"
+    "funny",
+    "india",
+    "hindi",
+    "deshbhakt",
+    "language"
   ],
-  "author": "Deshbhakt Developer",
-  "license": "MIT"
+  "author": "Bishwa",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bishwa100/modi-lang"
+  },
+  "homepage": "https://github.com/bishwa100/modi-lang#readme",
+  "bugs": {
+    "url": "https://github.com/bishwa100/modi-lang/issues"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
 }

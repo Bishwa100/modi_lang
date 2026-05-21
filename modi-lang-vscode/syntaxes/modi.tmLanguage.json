@@ -1,0 +1,213 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Modi Lang",
+  "scopeName": "source.modi",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#numbers" },
+    { "include": "#program-delimiters" },
+    { "include": "#control-keywords" },
+    { "include": "#declaration-keywords" },
+    { "include": "#constants" },
+    { "include": "#builtin-functions" },
+    { "include": "#logical-operators" },
+    { "include": "#comparison-operators" },
+    { "include": "#operators" },
+    { "include": "#identifiers" },
+    { "include": "#punctuation" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.modi",
+          "match": "//.*$"
+        },
+        {
+          "name": "comment.block.modi",
+          "begin": "/\\*",
+          "end": "\\*/"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.modi",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.modi",
+              "match": "\\\\[nrt\\\\\"']"
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.single.modi",
+          "begin": "'",
+          "end": "'",
+          "patterns": [
+            {
+              "name": "constant.character.escape.modi",
+              "match": "\\\\[nrt\\\\\"']"
+            }
+          ]
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.float.modi",
+          "match": "\\b\\d+\\.\\d+\\b"
+        },
+        {
+          "name": "constant.numeric.integer.modi",
+          "match": "\\b\\d+\\b"
+        }
+      ]
+    },
+    "program-delimiters": {
+      "patterns": [
+        {
+          "name": "keyword.control.program.modi",
+          "match": "\\b(namaste|jai_hind)\\b"
+        }
+      ]
+    },
+    "control-keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.conditional.modi",
+          "match": "\\b(agar_modi|nahi_toh|warna_modi)\\b"
+        },
+        {
+          "name": "keyword.control.loop.modi",
+          "match": "\\b(ghuma_ke|sabka_saath)\\b"
+        },
+        {
+          "name": "keyword.control.flow.modi",
+          "match": "\\b(laut_aao|demonetization|bas_kar|aage_badho)\\b"
+        },
+        {
+          "name": "keyword.control.trycatch.modi",
+          "match": "\\b(modi_hai_toh|pakoda)\\b"
+        }
+      ]
+    },
+    "declaration-keywords": {
+      "patterns": [
+        {
+          "name": "keyword.declaration.variable.modi",
+          "match": "\\b(modi)\\b"
+        },
+        {
+          "name": "keyword.declaration.function.modi",
+          "match": "\\b(mitron)\\b"
+        },
+        {
+          "name": "keyword.declaration.class.modi",
+          "match": "\\b(vishwaguru|naya_bharat)\\b"
+        }
+      ]
+    },
+    "constants": {
+      "patterns": [
+        {
+          "name": "constant.language.boolean.true.modi",
+          "match": "\\bacche_din\\b"
+        },
+        {
+          "name": "constant.language.boolean.false.modi",
+          "match": "\\bjumla\\b"
+        },
+        {
+          "name": "constant.language.null.modi",
+          "match": "\\bnota\\b"
+        }
+      ]
+    },
+    "builtin-functions": {
+      "patterns": [
+        {
+          "name": "support.function.print.modi",
+          "match": "\\bmann_ki_baat\\b"
+        },
+        {
+          "name": "support.function.input.modi",
+          "match": "\\bchai_pe_charcha\\b"
+        },
+        {
+          "name": "support.function.builtin.modi",
+          "match": "\\b(lambai|jodo_rally|nikalo|type_kya_hai|aankda|bhaashan|split|uppercase|lowercase|abs|power|random|floor|ceil|round)\\b"
+        }
+      ]
+    },
+    "logical-operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.logical.modi",
+          "match": "\\b(aur|ya|bilkul_nahi)\\b"
+        }
+      ]
+    },
+    "comparison-operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.comparison.modi",
+          "match": "\\b(same2same|jumla_hai)\\b"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.assignment.modi",
+          "match": "="
+        },
+        {
+          "name": "keyword.operator.arithmetic.modi",
+          "match": "[+\\-*/%]"
+        },
+        {
+          "name": "keyword.operator.comparison.symbol.modi",
+          "match": "(<=|>=|<|>|==|!=)"
+        }
+      ]
+    },
+    "identifiers": {
+      "patterns": [
+        {
+          "name": "variable.other.modi",
+          "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b"
+        }
+      ]
+    },
+    "punctuation": {
+      "patterns": [
+        {
+          "name": "punctuation.terminator.modi",
+          "match": ";"
+        },
+        {
+          "name": "punctuation.separator.comma.modi",
+          "match": ","
+        },
+        {
+          "name": "punctuation.bracket.round.modi",
+          "match": "[()]"
+        },
+        {
+          "name": "punctuation.bracket.curly.modi",
+          "match": "[{}]"
+        },
+        {
+          "name": "punctuation.bracket.square.modi",
+          "match": "[\\[\\]]"
+        }
+      ]
+    }
+  }
+}
